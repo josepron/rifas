@@ -1,72 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Rifa</title>
-
-<style>
-body {
-  font-family: Arial;
-  text-align: center;
-  background: #f5f5f5;
-}
-
-h1 {
-  margin: 20px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 10px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.numero {
-  padding: 15px;
-  border: 2px solid #333;
-  border-radius: 8px;
-  font-weight: bold;
-  background: white;
-  cursor: pointer;
-}
-
-.comprado {
-  background-color: #ff4d4d;
-  color: white;
-  text-decoration: line-through;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyer Rifa PRON Competición</title>
+    <link rel="stylesheet" href="style.css"> <!-- Enlaza tu archivo CSS -->
 </head>
 <body>
+    <div class="flyer-container" style="left: -3px;">
+        <div class="header">
+            <!-- Las imágenes ahora apuntan a la carpeta 'img/' -->
+            <img src="img/pron_competicion.png" alt="Logo PRON Competición" class="logo-pron">
+            <img src="img/logo-mini-power.png" alt="Logo Mini Power" class="logo-mini-power">
+        </div>
 
-<h1>Rifa</h1>
-<div class="grid" id="grid"></div>
+        <div class="title-section">
+            <h1 contenteditable="true" class="main-title">¡GRAN RIFA!</h1>
+            <div class="oferta-badge oferta-badge-float" aria-label="Oferta Valor $5000">
+                <span class="oferta-label">Valor</span>
+                <span class="oferta-value">$5000</span>
+            </div>
+            <p contenteditable="true" class="subtitle">¡Ayudemos a que Agustín entre a pista!<br>Recaudamos fondos para su nuevo minimidget</p>
+        </div>
 
-<script>
-const URL = "https://opensheet.elk.sh/1FmEJast0yNwQQ8qo69zqDTLezuumz2zn-3QC7bWoZMc/Hoja1";
+        <div class="content-section">
+            <div class="left-column">
+                <h2 contenteditable="true" class="section-title">PREMIOS:</h2>
+                <ul class="prize-list">
+                    <li contenteditable="true">1º KARTING NUEVO</li>
+                    <li contenteditable="true">2º EQUIPO COMPETICIÓN</li>
+                    <li contenteditable="true">3º INSCRIPCIÓN GRATIS</li>
+                    <li contenteditable="true">4º CASCO HOMOLOGADO</li>
+                    <li contenteditable="true">5º INDUMENTARIA</li>
+                </ul>
+            </div>
 
-fetch(URL)
-  .then(res => res.json())
-  .then(data => {
-    const grid = document.getElementById("grid");
+            <div class="raffle-numbers-container">
+                <!--<h2 contenteditable="true">NÚMEROS DISPONIBLES</h2>-->
+                <div class="grid" id="grid">
+                    <!-- Los números de la rifa se cargarán aquí desde Google Sheets -->
+                </div>
+            </div>
 
-    data.forEach(item => {
-      const div = document.createElement("div");
-      div.classList.add("numero");
+            <div class="right-column">
+                <h2 contenteditable="true" class="section-title">AUSPICIAN:</h2>
+                <div class="sponsor-list">
+                    <!-- Las imágenes de sponsors ahora apuntan a la carpeta 'img/' -->
+                    <div class="sponsor-item">
+                        <img src="img/sponsor1.png" alt="Sponsor 1" class="sponsor-logo">
+                        <p contenteditable="true">BOPG</p>
+                        <p contenteditable="true" class="sponsor-tag">SPONSOR 1</p>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="img/sponsor2.png" alt="Sponsor 2" class="sponsor-logo">
+                        <p contenteditable="true">MDC</p>
+                        <p contenteditable="true" class="sponsor-tag">SPONSOR 1</p>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="img/sponsor3.png" alt="Sponsor 3" class="sponsor-logo">
+                        <p contenteditable="true">KCCN</p>
+                        <p contenteditable="true" class="sponsor-tag">SPONSOR 2</p>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="img/sponsor4.png" alt="Sponsor 4" class="sponsor-logo">
+                        <p contenteditable="true">MSP</p>
+                        <p contenteditable="true" class="sponsor-tag">SPONSOR 3</p>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="img/sponsor5.png" alt="Sponsor 5" class="sponsor-logo">
+                        <p contenteditable="true">SPONSOR 3</p>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="img/sponsor6.png" alt="Sponsor 6" class="sponsor-logo">
+                        <p contenteditable="true">CGL-IX</p>
+                        <p contenteditable="true" class="sponsor-tag">SPONSOR 4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      div.textContent = item.Numero;
+        <div class="footer">
+            <!-- El logo B Design ahora apunta a la carpeta 'img/' -->
+            <img src="img/logo-b-design.png" alt="Logo B Design" class="logo-b-design">
+            <div class="raffle-info">
+                <p contenteditable="true">VALOR DEL NÚMERO: $5000</p>
+                <p contenteditable="true">SORTEA EL DÍA: 15/04/2026</p>
+                <p contenteditable="true">(Loteria Nacional Nocturna)</p>
+            </div>
+        </div>
+    </div>
 
-      if (item.Comprado === "SI") {
-        div.classList.add("comprado");
-      }
+    <script>
+        // URL de tu Google Sheet (¡asegúrate de que sea la correcta y accesible!)
+        const URL = "https://opensheet.elk.sh/1FmEJast0yNwQQ8qo69zqDTLezuumz2zn-3QC7bWoZMc/Hoja1";
 
-      grid.appendChild(div);
-    });
-  });
-</script>
+        fetch(URL)
+          .then(res => res.json())
+          .then(data => {
+            const grid = document.getElementById("grid");
 
+            // Limpiar la grilla antes de añadir nuevos elementos (por si hay un recarga o edición)
+            grid.innerHTML = ''; 
+
+            data.forEach(item => {
+              const div = document.createElement("div");
+              div.classList.add("numero");
+
+              // Usar un fallback si item.Numero es undefined (por si la columna no se llama así)
+              div.textContent = item.Numero || 'N/A'; 
+
+              if (item.Comprado && item.Comprado.toUpperCase() === "SI") { // Asegura que la comparación sea en mayúsculas
+                div.classList.add("comprado");
+              }
+
+              grid.appendChild(div);
+            });
+          })
+          .catch(error => {
+            console.error("Error al cargar los datos de Google Sheets:", error);
+            // Mostrar un mensaje de error en la interfaz si es necesario
+            const grid = document.getElementById("grid");
+            grid.innerHTML = '<p style="color:red;">Error al cargar los números de la rifa. Por favor, verifica la URL de Google Sheets y la conexión a internet.</p>';
+          });
+    </script>
 </body>
 </html>
