@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Rifa</title>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.numero {
+  padding: 15px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-weight: bold;
+  background: white;
+  cursor: pointer;
+}
+
+.comprado {
+  background-color: #ff4d4d;
+  color: white;
+  text-decoration: line-through;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Rifa</h1>
+<div class="grid" id="grid"></div>
+
+<script>
+const URL = "https://opensheet.elk.sh/1FmEJast0yNwQQ8qo69zqDTLezuumz2zn-3QC7bWoZMc/Hoja1";
+
+fetch(URL)
+  .then(res => res.json())
+  .then(data => {
+    const grid = document.getElementById("grid");
+
+    data.forEach(item => {
+      const div = document.createElement("div");
+      div.classList.add("numero");
+
+      div.textContent = item.Numero;
+
+      if (item.Comprado === "SI") {
+        div.classList.add("comprado");
+      }
+
+      grid.appendChild(div);
+    });
+  });
+</script>
+
+</body>
+</html>
