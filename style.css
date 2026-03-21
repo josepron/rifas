@@ -291,13 +291,13 @@ body {
 
 [contenteditable="true"] {
     outline: none;
-    border: 1px dashed rgba(255, 255, 255, 0.3);
-    padding: 2px 5px;
+    border: none;
+    padding: 0;
     cursor: text;
 }
 
 [contenteditable="true"]:hover {
-    border: 1px dashed rgba(255, 255, 255, 0.7);
+    border: none;
 }
 
 /* Media Queries para Responsividad */
