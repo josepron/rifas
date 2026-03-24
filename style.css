@@ -3,6 +3,11 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #1a1a1a;
+    background-image: url('img/fondo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -90,6 +95,10 @@ body {
     z-index: 5;
 }
 
+.oferta-badge-mobile {
+    display: none;
+}
+
 .oferta-label {
     display: block;
     color: #ffd700;
@@ -163,7 +172,7 @@ body {
 }
 
 .prize-list li {
-    font-size: 1.3em;
+    font-size: 1em;
     margin-bottom: 12px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 12px 20px;
@@ -233,8 +242,8 @@ body {
 
 .sponsor-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 12px;
 }
 
 .sponsor-item {
@@ -250,7 +259,7 @@ body {
 }
 
 .sponsor-logo {
-    max-width: 90px;
+    max-width: 90%;
     height: auto;
     margin-bottom: 8px;
     filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.3));
@@ -323,8 +332,31 @@ body {
         padding: 30px;
     }
     .header {
-        flex-direction: column;
-        gap: 25px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 12px;
+    }
+    .logo-pron {
+        width: 150px;
+        justify-self: start;
+    }
+    .logo-mini-power {
+        width: 110px;
+        justify-self: end;
+    }
+    .oferta-badge-desktop {
+        display: none;
+    }
+    .oferta-badge-mobile {
+        display: block;
+        position: static;
+    }
+    .oferta-badge-mobile .oferta-label {
+        font-size: 1.1em;
+    }
+    .oferta-badge-mobile .oferta-value {
+        font-size: 1.4em;
     }
     .main-title {
         font-size: 3.5em;
@@ -340,7 +372,7 @@ body {
         font-size: 1.8em;
     }
     .prize-list li {
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .raffle-numbers-container {
         padding: 20px;
@@ -376,39 +408,43 @@ body {
         font-size: 2.8em;
     }
     .subtitle {
-        font-size: 1.4em;
+        font-size: 1em;
     }
     .section-title {
         font-size: 1.5em;
     }
     .logo-pron {
-        width: 180px;
+        width: 125px;
     }
     .logo-mini-power {
-        width: 130px;
+        width: 90px;
     }
 
-    .oferta-badge-float {
-        top: 6px;
+    .header {
+        gap: 8px;
     }
 
     .oferta-badge {
         padding: 6px 10px;
     }
 
-    .oferta-label {
-        font-size: 1.4em;
+    .oferta-badge-mobile .oferta-label {
+        font-size: 0.95em;
     }
 
-    .oferta-value {
-        font-size: 2em;
+    .oferta-badge-mobile .oferta-value {
+        font-size: 1.2em;
+    }
+
+    .sponsor-logo {
+        max-width: 90%;
     }
 
     .sponsor-list {
         grid-template-columns: 1fr;
     }
     .prize-list li {
-        font-size: 1.1em;
+        font-size: 1em;
     }
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
